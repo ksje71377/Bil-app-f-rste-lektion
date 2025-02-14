@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.FileIO;
+using System.Globalization;
 
 namespace Bil_app__første_lektion
 {
@@ -45,9 +46,8 @@ namespace Bil_app__første_lektion
             pengeNødvendigt = brændstofNødvendigt * brændstofPris;
             kilometerstandEfter = Convert.ToInt32(bilKilometerstand + turDistance);
             Console.WriteLine("\nTil den pågældende tur behøver du {0} liter brændstof\n\t- det vil koste dig {1} kroner i brændstofudgifter!", brændstofNødvendigt, pengeNødvendigt);
-            Console.WriteLine("\nFør turen bliver kørt har din bil tilbagelagt {0} kilometer. Efter køreturen vil den have tilbagelagt {1} kilometer!", bilKilometerstand, kilometerstandEfter);
+            Console.WriteLine("\nFør turen bliver kørt har din bil tilbagelagt {0} kilometer. Efter køreturen vil den have tilbagelagt {1} kilometer!".PadLeft(15), bilKilometerstand, kilometerstandEfter);
             Console.ReadLine();
-
         }
     }
 }

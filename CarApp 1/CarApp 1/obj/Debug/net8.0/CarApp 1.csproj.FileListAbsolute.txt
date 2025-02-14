@@ -1,0 +1,14 @@
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\CarApp 1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\CarApp 1.AssemblyInfoInputs.cache
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\CarApp 1.AssemblyInfo.cs
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\CarApp 1.csproj.CoreCompileInputs.cache
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\bin\Debug\net8.0\CarApp 1.exe
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\bin\Debug\net8.0\CarApp 1.deps.json
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\bin\Debug\net8.0\CarApp 1.runtimeconfig.json
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\bin\Debug\net8.0\CarApp 1.dll
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\bin\Debug\net8.0\CarApp 1.pdb
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\CarApp 1.dll
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\refint\CarApp 1.dll
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\CarApp 1.pdb
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\CarApp 1.genruntimeconfig.cache
+C:\Users\pbaue\OneDrive\Desktop\Datamatiker start d. 03.02.25\Kode\CarApp 1\CarApp 1\obj\Debug\net8.0\ref\CarApp 1.dll

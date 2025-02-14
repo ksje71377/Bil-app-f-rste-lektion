@@ -70,7 +70,8 @@ namespace Bil_app__første_lektion
             brændstofNødvendigt = turDistance / bilForbrug;
             pengeNødvendigt = brændstofNødvendigt * brændstofPris;
             kilometerstandEfter = Convert.ToInt32(bilKilometerstand + turDistance);
-            
+
+            // Print samlede informationer
             Console.WriteLine("\nTil den pågældende tur behøver du {0} liter brændstof\n\t- det vil koste dig {1} kroner i brændstofudgifter!", brændstofNødvendigt, pengeNødvendigt);
             Console.WriteLine("\nFør turen bliver kørt har din bil tilbagelagt {0} kilometer. Efter køreturen vil den have tilbagelagt {1} kilometer!", bilKilometerstand, kilometerstandEfter);
             Console.ReadLine();

@@ -1,53 +1,77 @@
 ﻿using Microsoft.VisualBasic.FileIO;
-
+using System.ComponentModel.Design;
+//Kennies Private Spor, branch af master fra UCL CarApp. Tilføjet i dette commit: variabler er flyttet til klassen carAppInfo da de skal kunne hentes fra en metode.
 namespace Bil_app__første_lektion
 {
     internal class Program
     {
+        public class carAppInfo
+        //Variabler hentes fra metoden, en klasse er oprettet da variabler ellers kun kan eksistere i den metode som de er skrevet i. 
+        {
+            public string bilModel;
+            public int bilÅrgang;
+            public char bilGearkasse;
+            public char bilBrændstof;
+            public double bilForbrug;
+            public double brændstofPris;
+            public double brændstofNødvendigt;
+            public double pengeNødvendigt;
+            public int bilKilometerstand;
+            public int turDistance;
+            public int kilometerstandEfter;
+            public string gearBeskrivelse;
+            public string brændstofBeskrivelse;
+        }
+
+        //Start på programmet
+
         static void Main(string[] args)
         {
-            string bilModel;
-            int bilÅrgang;
-            char bilGearkasse;
-            char bilBrændstof;
-            double bilForbrug;
-            double brændstofPris;
-            double brændstofNødvendigt;
-            double pengeNødvendigt;
-            int bilKilometerstand;
-            int turDistance;
-            int kilometerstandEfter;
-            string gearBeskrivelse;
-            string brændstofBeskrivelse;
-            Console.WriteLine("Velkommen til CarApp version 1.0\n");
-            Console.WriteLine("Hvilken fabrikant har lavet din bil?:");
-            string bilFabrikant = Console.ReadLine();
-            Console.WriteLine("Hvilken model er din bil?");
-            bilModel = Console.ReadLine();
-            Console.WriteLine("Hvor mange kilometer har bilen kørt?:");
-            bilKilometerstand = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Hvilket slags brændstof bruger den? B for benzin, D for diesel");
-            bilBrændstof = Console.ReadLine()[0];
-            Console.WriteLine("Hvor langt kører den på literen? (Angiv i km/l.):");
-            bilForbrug = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Hvad årgang er din bil?");
-            bilÅrgang = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Er bilens gear manuelt eller automatisk? Tast A for auto, M for manuel.");
-            bilGearkasse = Console.ReadLine()[0];
-            gearBeskrivelse = bilGearkasse == 'A' ? "automatgear" : (bilGearkasse == 'M' ? "manuelt gear" : "ukendt, du har tastet forkert input");
-            brændstofBeskrivelse = bilBrændstof == 'B' ? "benzin" : (bilBrændstof == 'D' ? "diesel" : "ukendt brændstoftype, du har tastet forkert input");
-            Console.WriteLine("Tak for det indtastede! Vi ved nu at din bil er produceret af " + bilFabrikant + " og er af modellen " + bilModel + " - den er fra år " + bilÅrgang + " og gearkassen er " + gearBeskrivelse + ". Den anvender " + brændstofBeskrivelse + " som drivmiddel, kører " + bilForbrug + " pr. liter " + brændstofBeskrivelse + " og har tilbagelagt i alt " + bilKilometerstand + " kilometer siden den var ny.\n\nDer skal nu beregnes på økonomien i en tur.");
-            Console.WriteLine("\n\nIndtast venligst gældende pris for en liter brændstof:");
-            brændstofPris = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Angiv, hvor lang en tur du skal ud og køre - brug ikke decimaler:");
-            turDistance = Convert.ToInt32(Console.ReadLine());
-            brændstofNødvendigt = turDistance / bilForbrug;
-            pengeNødvendigt = brændstofNødvendigt * brændstofPris;
-            kilometerstandEfter = Convert.ToInt32(bilKilometerstand + turDistance);
-            Console.WriteLine("\nTil den pågældende tur behøver du {0} liter brændstof\n\t- det vil koste dig {1} kroner i brændstofudgifter!", brændstofNødvendigt, pengeNødvendigt);
-            Console.WriteLine("\nFør turen bliver kørt har din bil tilbagelagt {0} kilometer. Efter køreturen vil den have tilbagelagt {1} kilometer!", bilKilometerstand, kilometerstandEfter);
-            Console.ReadLine();
+            //Metoden carAppInfo (indeholdende variablerne) kaldes:
 
+            carAppInfo carAppInfo = new carAppInfo();
+
+            //Velkomstbesked
+
+            Console.WriteLine("Velkommen til CarApp version 1.01\n\nVælg venligst en funktion forneden i hovedmenuen.\n\n");
+
+            //Hovedmenu
+
+            Console.WriteLine("Tast '1' for at indtaste oplysninger om et nyt køretøj.\tTast '2' for at åbne \"Drive\" modulet.\n\nTast '3' for at beregne brændstoføkonomi på en tur\tTast '4' for at åbne \"Palindrom\"-tjek.\n\nTast '5' for at vise aktuelle bil data.\t\t\tTast '6' for se alle teamets bilinformationer.");
+
+            //Case statement skal følge som afhænger af brugerens input - indhent variabel menuValg
+            int menuValg;
+            int.TryParse (Console.ReadLine(), out menuValg);
+
+            switch (menuValg)
+            {
+                case 1:
+                    //Indhent metode indtast bilinfo (skal være do-while loop, fordi, mindst en bil er påkrævet, vi kender ikke øvre antal af biler som skal indtastes
+                    break;
+                case 2:
+                    //Indhent metode drive modul
+                    break;
+                case 3:
+                    //Indhent metode tripEconomy
+                    break;
+                case 4:
+                    //Indhent metode palindrom
+                    break;
+                case 5:
+                    //Indhent metode vis aktuel bildata
+                    break;
+                case 6:
+                    //Vis alle teamets bilinformationer 
+                    break;
+                default:
+                    Console.WriteLine("FEJL. Du har indtastet et UGYLDIGT valg. Prøv igen, eller afslut programmet.");
+                    break;
+
+            }
+
+            //Flere biler (med "samme" variabel") kan lade sig gøre med et loop. 
+
+            Console.ReadKey();
         }
     }
 }

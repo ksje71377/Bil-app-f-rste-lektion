@@ -6,6 +6,7 @@
     <RootNamespace>Bil_app__første_lektion</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>CarApp</Title>
   </PropertyGroup>
 
 </Project>

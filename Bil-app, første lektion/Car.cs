@@ -4,13 +4,13 @@ namespace CarApp;
 
 public class Car
 {
-    private string brand;
-    private string model;
-    private int year;
-    private char fuelType;
-    private bool isEngineOn;
-    private int odometer;
-    private double kilometersPerLiter;
+    private string brand { get; set; }
+    private string model { get; set; }
+    private int year { get; set; }
+    private char fuelType { get; set; }
+    private bool isEngineOn { get; set; }
+    private int odometer { get; set; }
+    private double kilometersPerLiter { get; set; }
     public Car(string brandInput, string modelInput, int yearInput, char fuelTypeInput, double kilometersPerLiterInput)
     {
         brand = !String.IsNullOrEmpty(brandInput) ? brandInput : "Unknown";
@@ -28,11 +28,11 @@ public class Car
             Console.WriteLine("Invalid input");
             return;
         }
-        
+
         isEngineOn = true;
-        
+
         odometer += tripDistanceInput;
-        
+
         isEngineOn = false;
     }
 
@@ -44,57 +44,29 @@ public class Car
             Console.WriteLine("Invalid input");
             return 0;
         }
-        
+
         return fuelPriceInput * (tripDistanceInput / kilometersPerLiter);
     }
 
-    public string[] GetCarDetails()
+    public void PrintCarDetails() //brug console.writeline
     {
-        // Return car details
-        return [
-            brand,
-            model,
-            Convert.ToString(year),
-            GetFuelType(),
-            Convert.ToString(isEngineOn),
-            Convert.ToString(odometer),
-            Convert.ToString(kilometersPerLiter, CultureInfo.CurrentCulture),
-        ];
+        Console.WriteLine("Brand: " + brand);
+        Console.WriteLine("Model: " + model);
+        Console.WriteLine("Year: " + year);
+        Console.WriteLine("Fuel type: " + GetFuelTypeString());
+        Console.WriteLine("Is engine on: " + isEngineOn);
+        Console.WriteLine("Odometer: " + odometer);
+        Console.WriteLine("Kilometers per liter: " + kilometersPerLiter);
+
+        Console.WriteLine("-------------------------------------------------");
+
     }
-    
-    public string GetBrand()
+
+
+    private string GetFuelTypeString()
     {
-        return brand;
-    }
-    
-    public void SetBrand(string brandInput)
-    {
-        brand = !String.IsNullOrEmpty(brandInput) ? brandInput : "Unknown";
-    }
-    
-    public string GetModel()
-    {
-        return model;
-    }
-    
-    public void SetModel(string modelInput)
-    {
-        model = !String.IsNullOrEmpty(modelInput) ? modelInput : "Unknown";
-    }
-    
-    public int GetYear()
-    {
-        return year;
-    }
-    
-    public void SetYear(int yearInput)
-    {
-        year = yearInput > 1886 ? yearInput : DateTime.Now.Year;
-    }
-    
-    public string GetFuelType()
-    {
-        switch (char.ToUpper(fuelType)) {
+        switch (char.ToUpper(fuelType))
+        {
             case 'D':
                 return "Diesel";
             case 'P':
@@ -103,16 +75,6 @@ public class Car
                 return "Unknown";
         }
     }
-    
-    public void SetFuelType(char fuelTypeInput)
-    {
-        fuelType = fuelTypeInput;
-    }
-    
-    public bool GetIsEngineOn()
-    {
-        return isEngineOn;
-    }
-    
-    
+
+
 }

@@ -1,30 +1,70 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using System.ComponentModel.Design;
-//Car App. Seneste opdatering 21-02. Tilføjet menu, drive modul og loops. 
+//Car App. Seneste opdatering 13-03. Begyndt at implementere klasser, list og enum. 
 
 namespace Bil_app__første_lektion
 {
-    public class car
+    public class TheCar
     {
-        public string make;
-        public string model;
-        public int year;
-        public int mileage;
-        public double econ;
-        public string carFuelInput;
+        private string carMake;
+        private string carModel;
+        private int carYear;
+        private int carMileage;
+        private string carFuelInput;
     }
-    public class trip
+    public class CarWheel
     {
-        public bool isEngineOn;
-        public char isEngineOnResponse;
-        public int tripDistance;
-        public double fuelSpent;
+        private int wheelSize;
+        private bool isWheelTurning;
+    }
+    public class CarEngine
+    {
+        private int engineDisplacement;
+        private int enginePower;
+        private int engineTorque;
+        private int engineCylinders;
+        private int engineValves;
+        private int engineConsumption;
+    }
+    public class CarOwner
+    {
+        private string ownerName;
+        private string ownerAddress;
+        private string ownerCity;
+        private string ownerPhone;
+    }
+    public class Trip
+    {
+        private double TripDistance;
+        DateTime TripDate;
+        DateTime startTime;
+        DateTime endTime;
+        TimeSpan CalculateDuration()
+        {
+            return endTime - startTime;
+        }
+        double CalculateFuelUsed()
+        {
+            return TripDistance / 100 * carEcon;
+        }
+        double CalculateFuelCost()
+        {
+            return CalculateFuelUsed() * fuelPrice;
+        }
+        void PrintTripDetails()
+        {
+            Console.WriteLine("Trip distance: {0} km", TripDistance);
+            Console.WriteLine("Trip duration: {0} hours", CalculateDuration().TotalHours);
+            Console.WriteLine("Fuel used: {0} liters", CalculateFuelUsed());
+            Console.WriteLine("Fuel cost: {0} kr", CalculateFuelCost());
+        }
     }
     public enum FuelType
     {
-        Benzin,
-        Diesel,
-        El
+        benzin,
+        diesel,
+        el,
+        hybrid
     }
     //Static variabler - så de kan bruges tværs over metoderne:
 
@@ -60,29 +100,29 @@ namespace Bil_app__første_lektion
 
                 Console.WriteLine("\nDu indtaster nu data for bil nr. 1");
 
-                        Console.WriteLine("Indtast fabrikanten");
+                Console.WriteLine("Indtast fabrikanten");
 
-                        carMake = Console.ReadLine();
+                carMake = Console.ReadLine();
 
-                        Console.WriteLine("Indtast modellen");
+                Console.WriteLine("Indtast modellen");
 
-                        car1Model = Console.ReadLine();
+                car1Model = Console.ReadLine();
 
-                        Console.WriteLine("Indtast årgangen");
+                Console.WriteLine("Indtast årgangen");
 
-                        int.TryParse(Console.ReadLine(), out car1Year);
+                int.TryParse(Console.ReadLine(), out carYear);
 
-                        Console.WriteLine("Indtast bilens kilometerstand");
+                Console.WriteLine("Indtast bilens kilometerstand");
 
-                        int.TryParse(Console.ReadLine(), out car1Mileage);
+                int.TryParse(Console.ReadLine(), out carMileage);
 
-                        Console.WriteLine("Angiv drivmiddel-type. Benzin angives 'B', diesel 'D' og el 'E'.");
+                Console.WriteLine("Angiv drivmiddel-type. Benzin angives 'B', diesel 'D', el som 'E' og hybrid som 'H'");
 
-                        Char.TryParse(Console.ReadLine(), out carFuelInput);
+                Char.TryParse(Console.ReadLine(), out carFuelInput);
 
                         Console.WriteLine("Indtast bilens forbrug i km/l:");
 
-                        double.TryParse(Console.ReadLine(), out car1Econ);
+                        double.TryParse(Console.ReadLine(), out carEcon);
 
                 //Do while løkke - ønsker bruger at fortsætte med at indtaste flere biler? Hvis ja, koden køres igen. 
 
@@ -171,7 +211,7 @@ namespace Bil_app__første_lektion
                 switch (readCarMenu3)
                 {
                     case 1:
-                        car1();
+                        getCarInfo();
                         break;
                     default:
                         Console.WriteLine("Ugyldig bil indtastet. Prøv igen. Vælge en bil mellem 1 og 6.");
@@ -196,17 +236,34 @@ namespace Bil_app__første_lektion
             Console.ReadKey();
         }
 
-        //Følgende 6 metoder indeholder oplysninger om hver respektive bil
+        //Følgende metode indeholder oplysninger om hver respektive bil
 
-        static void car6()
+        static void getCarInfo()
         {
             Console.WriteLine("------ Grundoplysninger om bilen ------\n");
             Console.WriteLine("Mærke: {0}", carMake);
             Console.WriteLine("Model: {0}", carModel);
-            Console.WriteLine("\n\nPågældende bil er fra år {0} og har tilbagelagt {1} kilometer.\n", car6Year, car6Mileage);
+            Console.WriteLine("\n\nPågældende bil er fra år {0} og har tilbagelagt {1} kilometer.\n", carYear, carMileage);
             Console.WriteLine("\n\n------ Økonomioplysninger om køretøjet: ------");
             Console.WriteLine("Forbrug (Km/l): {0}", carEcon);
-            Console.WriteLine("Drivmidlet er {0}", carEcon);
+            if(carFuelInput == 'B')
+            {
+                Console.WriteLine("Drivmidlet er {0}", (FuelType)0);
+            }
+            else if (carFuelInput == 'D')
+            {
+                Console.WriteLine("Drivmidlet er {0}", (FuelType)1);
+            }
+            else if (carFuelInput == 'E')
+            {
+                Console.WriteLine("Drivmidlet er {0}", (FuelType)2);
+            }
+            else if (carFuelInput == 'H')
+            {
+                Console.WriteLine("Drivmidlet er {0}", (FuelType)3);
+            }
+            else
+                Console.WriteLine("ugyldig brændstoftype");
         }
 
         //Velkomst til programmet og menupunkt initialiseres

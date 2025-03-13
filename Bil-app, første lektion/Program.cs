@@ -7,6 +7,7 @@ namespace Bil_app__første_lektion
 {
     //Static variabler - så de kan bruges tværs over metoderne:
 
+
     internal class Program
     {
        
@@ -15,12 +16,12 @@ namespace Bil_app__første_lektion
         static void Main(string[] args)
         {
             // Toyota Corolla
-            Car toyotaCorollaCar = new Car("Toyota", "Corolla", 2015, 'd', 20);
+            Car toyotaCorollaCar = new Car("Toyota", "Corolla", 2015, FuelType.Diesel, 20); //previously 'Diesel'
 
             // Toyota Yaris
-            Car toyotaYarisCar = new Car("Toyota", "Yaris", 2018, 'p', 25);
+            Car toyotaYarisCar = new Car("Toyota", "Yaris", 2018, FuelType.Benzin, 25); //previously 'Benzin'
 
-            Car[] cars = [toyotaCorollaCar, toyotaYarisCar];
+            Car[] cars = { toyotaCorollaCar, toyotaYarisCar };
 
             foreach (Car car in cars)
             {

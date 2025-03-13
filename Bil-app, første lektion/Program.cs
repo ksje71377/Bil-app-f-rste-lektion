@@ -81,8 +81,10 @@ namespace Bil_app__første_lektion
         static bool isCar1EngineOn;
         static char engineResponse1;
         //readCarDetails metode. Bruger indtaster ønskede bil og switch gemmer herefter i den korrekte variabel. 
-
-        static void readCarDetails()
+/// <summary>
+/// Dokumentation af koden! 
+/// </summary>
+        static void ReadCarDetails()
         {
             //Løkke initialiseres - brugeren angiver efter indtastning af 1 bil, om flere skal indtastes. 
             do
@@ -288,7 +290,7 @@ namespace Bil_app__første_lektion
                 {
                     case 1:
                         {
-                            readCarDetails();
+                            ReadCarDetails();
                         }
                         break;
                     case 2:
